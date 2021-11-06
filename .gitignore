@@ -1,0 +1,8 @@
+src/bwd
+src/config.json
+.vscode
+.env
+/src/database
+/src/providers
+/src/node_modules
+yarn.lock
