@@ -8,7 +8,10 @@ const {
 const yesReaction = ['<:yescheckmark:889342406753935401>'];
 
 const coolJaws = [
-    'jaws is cool'
+    'jaws is cool',
+    'unknown is cool',
+    'tender is amazing',
+    'akaashi is cute'
 ]
 
 module.exports = class extends Monitor {
