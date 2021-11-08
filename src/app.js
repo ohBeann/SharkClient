@@ -2,6 +2,8 @@ const { Client } = require('klasa');
 const { token } = require ('./config.json')
 require('dotenv').config();
 
+require('./lib/schemas/GuildSchema')
+
 
 new Client({
 	prefix: '.',
