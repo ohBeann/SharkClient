@@ -1,4 +1,6 @@
-const { Client } = require('klasa');
+const { KlasaClient } = require("klasa");
 
-Client.defaultGuildSchema
-	.add('raidmode', 'boolean', { default: false })
+KlasaClient.defaultGuildSchema
+	.add('roles', folder => folder
+		.add('muted', 'role'))
+		
