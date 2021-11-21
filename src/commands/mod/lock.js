@@ -9,12 +9,12 @@ module.exports = class extends Command {
 			permissionLevel: 6,
 			description: 'Enables anti-raid features for Sharkland',
 			extendedHelp: 'No extended help available.',
+			usage: '[off]',
+			subcommands: true
 		});
 	}
 
 	async run(message, args) {
-							// Will only work in Sharkland with the Perms role / "MANAGE_GUILD" permision
-		if (message.guild.id !== '584208881711054918') return message.reply('This guild is not elligble for the Lock command!')
 		if (message.guild.settings.get('raidmode')) throw 'Anti-raid is already enabled.';
 
         const lockRole = message.guild.roles.everyone;
@@ -25,10 +25,22 @@ module.exports = class extends Command {
 
         await lockRole.edit({ permissions : newPerms })
 
-		console.log(newPerms)
-
 		await message.guild.settings.update('raidmode', true, message.guild);
 		return message.send('🛡  ::  Anti-raid mode enabled.');
+	}
+	async off(message){
+		if (!message.guild.settings.get('raidmode', true)) throw 'Anti-raid is already disabled.';
+
+        const unlockRole = message.guild.roles.everyone;
+
+        const perms = unlockRole.permissions.toArray();
+
+        perms.push("SEND_MESSAGES");
+
+        await unlockRole.edit({ permissions : perms })
+    
+		await message.guild.settings.reset('raidmode', message.guild);
+		return message.send('Anti-raid mode disabled.');
 	}
 
 };
