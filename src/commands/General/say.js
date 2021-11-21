@@ -8,7 +8,7 @@ module.exports = class extends Command {
             enabled: true,
             description: 'Says what you tell it to',
             extendedHelp: 'No extended help available.',
-            usage: '',
+            usage: '<say:string>',
         });
     }
 
