@@ -28,7 +28,7 @@ module.exports = class extends Monitor {
         if (!message.guild && message.guild.id !== '584208881711054918') return null;
         if (!new RegExp(coolJaws.join('|')).test(message.content.toLowerCase())) return null;
         // only works in #general of Sharkland & the testing server, removing this makes it work in all channels
-        if (['584208881711054920', '889292703525900291'].includes(message.channel.id)) {
+        if (['584208881711054920'].includes(message.channel.id)) {
             console.log('jaws is amazing indeed');
             return Promise.all(yesReaction.map(async emote => await message.react(emote)));
         }
