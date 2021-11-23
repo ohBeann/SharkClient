@@ -22,10 +22,12 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [when, member, reason]) {
+	async run(msg,[when, member, reason]) {
 		if (member.id === msg.author.id) throw 'Why would you mute yourself?';
 		if (member.id === this.client.user.id) throw 'Have I done something wrong?';
 
+		const mutedRole = await msg.guild.settings.roles.muted
+		if (!mutedRole) return msg.reply(`, You do not have a muted role set in the guild settings. Please issue the command \`${msg.guild.settings.prefix}conf set roles.muted <roleID or mention>\``)
 		if (member.roles.highest.position >= msg.member.roles.highest.position) throw 'You cannot mute this user.';
 
 		if (member.roles.cache.has(msg.guild.settings.roles.muted)) throw 'The member is already muted.';

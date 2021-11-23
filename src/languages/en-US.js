@@ -117,7 +117,7 @@ module.exports = class extends Language {
 			COMMAND_PING: 'Ping?',
 			COMMAND_PING_DESCRIPTION: 'Runs a connection test to Discord.',
 			COMMAND_PINGPONG: (diff, ping) => `Pong! (Roundtrip took: ${diff}ms. Heartbeat: ${ping}ms.)`,
-			COMMAND_INVITE: () => 'Invite me here: https://discord.com/oauth2/authorize?client_id=769661759006703625&permissions=8&scope=bot',
+			COMMAND_INVITE: () => 'Invite me here: https://discord.com/api/oauth2/authorize?client_id=769661759006703625&permissions=413691931766&scope=bot',
 			COMMAND_INVITE_DESCRIPTION: 'Displays the invite link of the bot, to invite it to your guild.',
 			COMMAND_INFO: 'Hey, I\'m Shark Bot, a multi-purpose, in development, Discord bot.',
 			COMMAND_INFO_DESCRIPTION: 'What am I for?',
