@@ -13,16 +13,13 @@ module.exports = class extends Monitor {
 	}
 
 	async run(message) {
-		if (!message.guild && message.guild.id !== '584208881711054918') return null;
 
-		// #suggestions
-		if (['774106773560360990'].includes(message.channel.id)) {
+		const _channel = await message.guild.settings.get("channels.suggestionChannel")
+
+		if (message.channel.id === _channel) {
 			console.log('hi');
 			return Promise.all(REACTIONS.map(async emote => await message.react(emote)));
 		}
-
-		if (message.channel.id !== '774106773560360990') return null;
-		return Promise.all(REACTIONS.map(async emote => await message.react(emote)));
 	}
 
 };
