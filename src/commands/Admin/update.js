@@ -17,7 +17,7 @@ module.exports = class extends Command {
 		const pieces = [];
 		const failed = [];
 		const timer = new Stopwatch();
-		const execCommand = await this.store.get('exec').run(message, ['git stash']);
+		const execCommand = await this.store.get('exec').run(message, ['git pull']);
 		let possiblePieces = execCommand.content.match(/(?:[A-Z|a-z|0-9]*\.js)$/gm);
 
 		if (possiblePieces) {
