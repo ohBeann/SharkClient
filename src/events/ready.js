@@ -10,7 +10,7 @@ module.exports = class extends Event {
     }
 
     async run(...params) {
-        this.client.user.setActivity(`over ${this.client.users.cache.size.toLocaleString()} users | .HELP`, { type: 'WATCHING'})
+        this.client.user.setActivity(`over ${this.client.users.cache.size.toLocaleString()} users | .help`, { type: 'WATCHING'})
     }
 
     async init() {
