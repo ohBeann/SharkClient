@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "discord.js": "^13.1.0"
+    "discord.js": "^13.1.0",
+    "reddit-image-fetcher": "^2.0.8"
   }
 }
