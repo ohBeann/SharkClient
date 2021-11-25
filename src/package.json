@@ -10,7 +10,7 @@
     "util": "^0.12.4"
   },
   "name": "bean-client",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "main": "app.js",
   "scripts": {
     "start": "pm2 start app.js",
