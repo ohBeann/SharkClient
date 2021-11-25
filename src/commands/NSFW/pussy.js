@@ -14,9 +14,7 @@ module.exports = class extends Command {
             deletable: false,
             nsfw: true,
             permissionLevel: 0,
-            description: 'Hug someone!',
             extendedHelp: 'No extended help available.',
-            usage: '[Member]',
         });
     }
 

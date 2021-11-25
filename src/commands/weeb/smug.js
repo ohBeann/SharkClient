@@ -15,7 +15,6 @@ module.exports = class extends Command {
             permissionLevel: 0,
             description: 'Act smug',
             extendedHelp: 'No extended help available.',
-            usage: '[Member]',
         });
     }
 

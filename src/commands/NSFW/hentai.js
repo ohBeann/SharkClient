@@ -21,7 +21,7 @@ module.exports = class extends Command {
     async run(message) {
         if(message.guild.settings.nsfw == false) throw `Guild does not have NSFW enabled!`
         const embed = new Discord.MessageEmbed()
-            .setImage(await (await neko.nsfw.neko()).url)
+            .setImage(await (await neko.nsfw.hentai()).url)
             .setFooter('Powered by nekos.life')
         message.channel.send(embed)
     }
