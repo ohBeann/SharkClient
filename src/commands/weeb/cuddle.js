@@ -13,7 +13,7 @@ module.exports = class extends Command {
             runIn: ['text', 'dm', 'group'],
             deletable: false,
             permissionLevel: 0,
-            description: 'Hug someone!',
+            description: 'Cuddle someone!',
             extendedHelp: 'No extended help available.',
             usage: '[Member]',
         });

@@ -12,28 +12,19 @@ module.exports = class extends Command {
             enabled: true,
             runIn: ['text', 'dm', 'group'],
             deletable: false,
+            nsfw: true,
             permissionLevel: 0,
-            description: 'Slap someone!',
+            description: 'Hug someone!',
             extendedHelp: 'No extended help available.',
             usage: '[Member]',
         });
     }
 
     async run(message) {
-        const personSlapped = message.mentions.users.first()
-        if (!personSlapped) return  message.channel.send(new Discord.MessageEmbed()
-            .setColor("BLACK")
-            .setImage(await (await (await neko.sfw.slap()).url))
-            .setFooter('Powered by nekos.life'))
-
+        if(message.guild.settings.nsfw == false) throw `Guild does not have NSFW enabled!`
         const embed = new Discord.MessageEmbed()
-            .setColor("BLACK")
-            .setImage(await (await neko.sfw.slap()).url)
-            .setDescription(`**${message.member.user.username}** slaps **${personSlapped.username}**`)
+            .setImage(await (await neko.nsfw.kuni()).url)
             .setFooter('Powered by nekos.life')
-
-
         message.channel.send(embed)
-
     }
 };
