@@ -20,7 +20,7 @@ module.exports = class extends Command {
             runIn: ['text', 'dm'],
             cooldown: 3,
             nsfw: false,
-            description: 'Gives you an answer to your question',
+            description: 'Answers your question',
             usage: '<Question:string>'
         }
     }

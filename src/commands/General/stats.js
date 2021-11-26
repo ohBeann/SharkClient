@@ -7,7 +7,7 @@ module.exports = class extends Command {
 	constructor(...args) {
 		super(...args, {
 			guarded: true,
-			description: "get's general stats of the bot"
+			description: "Get's general stats of the bot"
 		});
 	}
 
