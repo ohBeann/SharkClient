@@ -28,7 +28,7 @@ module.exports = class extends Command {
 
 		const mutedRole = await msg.guild.settings.roles.muted
 		if (!mutedRole) return msg.reply(`, You do not have a muted role set in the guild settings. Please issue the command \`${msg.guild.settings.prefix}conf set roles.muted <roleID or mention>\``)
-		if (member.roles.highest.position >= msg.member.roles.highest.position) throw 'You cannot mute this user.';
+		if (member.roles.highest.position >= msg.member.roles.highest.position || msg.guild.settings.get('roles.modrole')) throw 'You cannot mute this user.';
 
 		if (member.roles.cache.has(msg.guild.settings.roles.muted)) throw 'The member is already muted.';
 		await member.roles.add(msg.guild.settings.roles.muted);

@@ -1,4 +1,6 @@
-const { Command } = require('klasa');
+const {
+    Command
+} = require('klasa');
 const Discord = require('discord.js')
 
 module.exports = class extends Command {
@@ -26,7 +28,10 @@ module.exports = class extends Command {
             .setColor("BLACK")
             .setAuthor(_user.tag, _user.displayAvatarURL())
             .setDescription("**Avatar**")
-            .setImage(_user.avatarURL({ size: 1024, dynamic: true}))
+            .setImage(_user.avatarURL({
+                size: 1024,
+                dynamic: true
+            }))
         message.channel.send(embed)
     }
 
