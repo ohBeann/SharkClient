@@ -29,5 +29,5 @@ new Client({
 		}
 	},
     readyMessage: (client) => `Successfully initialized. Ready to serve ${client.guilds.cache.size} guilds.`
-}).login(token);
+}).login(process.env.TOKEN);
 
