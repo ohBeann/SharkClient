@@ -6,12 +6,14 @@ module.exports = class extends Event {
 
     constructor(...args) {
         super(...args, {
-            enabled: false,
+            enabled: true,
         });
     }
 
-   async run(member) {
-        if(member.guild.id !== '584208881711054918') return;
-        await member.roles.add('893607222322548747')
+    async run(member) {
+        if(!member.guild.settings.get('toggles.autorole', false)) return null;
+        if (!member.guild.settings.get('roles.autorole')) return null;
+        const role = member.guild.setings.get.roles.autorole
+        await member.roles.add(role)
+        }
     }
-};
