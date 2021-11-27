@@ -6,6 +6,7 @@ module.exports = class extends Event {
 
         super(...args, {
             enabled: true,
+            once: false
         });
     }
 
@@ -18,3 +19,4 @@ module.exports = class extends Event {
     }
 
 };
+
