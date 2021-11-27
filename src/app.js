@@ -3,6 +3,7 @@ const { token } = require ('./config.json')
 require('dotenv').config();
 
 require('./lib/schemas/GuildSchema')
+require('./lib/schemas/ClientSchema')
 
 
 new Client({
