@@ -13,7 +13,7 @@ module.exports = class extends Event {
         
     }
     async init(){
-        this.client.user.setActivity(`over ${this.client.users.cache.size.toLocaleString()} users | .help`, { type: 'WATCHING'})
+        this.client.user.setActivity(`over ${this.client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users | .help`, { type: 'WATCHING'})
     }
 
     }
