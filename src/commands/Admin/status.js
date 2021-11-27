@@ -17,7 +17,9 @@ module.exports = class extends Command {
     }
 
     async run(message) {
-        await this.client.schedule.create('statusUpdate', '* * * * *')
+        const entry = this.client.schedule.tasks.some(task => task.taskName === 'statusUpdate');
+        if(entry) return ("Already scheduled.")
+        await this.client.schedule.create('statusUpdate', '0 * * * *')
         message.channel.send("Success")
     }
 };
