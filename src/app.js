@@ -1,12 +1,8 @@
-const { Client } = require('klasa');
-const { token } = require ('./config.json')
+const SharkClient = require("./lib/structures/SharkClient")
 require('dotenv').config();
 
-require('./lib/schemas/GuildSchema')
-require('./lib/schemas/ClientSchema')
 
-
-new Client({
+new SharkClient({
 	prefix: '.',
 	commandEditing: true,
 	commandLogging: true,
