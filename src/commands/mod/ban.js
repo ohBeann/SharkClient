@@ -19,7 +19,7 @@ module.exports = class extends Command {
             requiredPermissions: ["BAN_MEMBERS"],
             permissionLevel: 5,
             description: 'Bans a member',
-            extendedHelp: '`--messages=<1-7>` for days of messages to delete',
+            extendedHelp: '`--duration<1-30d> for temp ban duration``--messages=<1-7>` for days of messages to delete',
             usage: '<user:user> [reason:string] [...]',
             usageDelim: " ",
             quotedStringSupport: false,
