@@ -13,7 +13,7 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
-			permissionLevel: 6,
+			permissionLevel: 5,
 			requiredPermissions: ['MANAGE_ROLES'],
 			runIn: ['text'],
 			description: 'Mutes a mentioned member.',
