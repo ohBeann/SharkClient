@@ -14,6 +14,6 @@ module.exports = class extends Event {
         if(!member.guild.settings.get('toggles.autorole', false)) return null;
         if (!member.guild.settings.get('roles.autorole')) return null;
         const role = member.guild.settings.get("roles.autorole")
-        await member.roles.add(role)
+        await member.roles.add(role, "Shark bot Autorole feature")
         }
     }
