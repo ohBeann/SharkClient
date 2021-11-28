@@ -8,7 +8,7 @@ module.exports = class extends Command {
 			runIn: ['text'],
 			permissionLevel: 6,
 			description: 'Enables anti-raid features for your server (view extended help)',
-			extendedHelp: 'No extended help available.',
+			extendedHelp: 'In order for this feature to work, you must set the "SEND_MESSAGES" permission to OFF on ALL roles. Make sure the "SEND_MESSAGES" permission is enabled on the @everyone role. That\'s how this feature works',
 			usage: '[off]',
 			subcommands: true
 		});
