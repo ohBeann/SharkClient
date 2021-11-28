@@ -5,6 +5,7 @@ const {
 const {
     EMOTES
 } = require("../../lib/util/constants")
+const Discord = require("discord.js")
 
 module.exports = class extends Command {
 
@@ -45,7 +46,7 @@ module.exports = class extends Command {
 
         if (msgDays && (!typeof msgDays === Number || msgDays < 1 || msgDays >= 8)) throw `${EMOTES.cross} ***Invalid days of messages to be deleted, 1-7 only.***`;
         if (banDays && (duration.offset < 1 || duration.offset > 2592000000)) throw `${EMOTES.cross} ***Invalid temporary ban days, maximum 30 days only.***`;
-        
+
         if (banDays) await this.client.schedule.create("timedBan", duration, {
             data: {
                 guildID: msg.guild.id,
@@ -53,10 +54,15 @@ module.exports = class extends Command {
             },
             catchUp: true
         });
+        const embed = new Discord.MessageEmbed()
+            .setDescription(`You have been banned in ${msg.guild.name} ${duration > 0 ? ` for: ${banDays}` : ""}${reason ? ` | ${reason}` : ""}`)
+            .setColor("RED")
+        await target.send(embed)
         await msg.guild.members.ban(target, {
             reason: reason ? reason : `No Reason Specified - ${msg.author.tag}`,
             days: msgDays
-        });
+        })
+
 
 
 
