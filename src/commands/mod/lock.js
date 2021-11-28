@@ -7,7 +7,7 @@ module.exports = class extends Command {
 			enabled: true,
 			runIn: ['text'],
 			permissionLevel: 6,
-			description: 'Enables anti-raid features for Sharkland',
+			description: 'Enables anti-raid features for your server (view extended help)',
 			extendedHelp: 'No extended help available.',
 			usage: '[off]',
 			subcommands: true
