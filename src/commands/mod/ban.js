@@ -9,17 +9,13 @@ const {
 module.exports = class extends Command {
 
     constructor(...args) {
-        /**
-         * Any default options can be omitted completely.
-         * if all options are default, you can omit the constructor completely
-         */
         super(...args, {
             enabled: true,
             runIn: ['text'],
             requiredPermissions: ["BAN_MEMBERS"],
             permissionLevel: 5,
             description: 'Bans a member',
-            extendedHelp: '`--duration<1-30d>` for temp ban duration \n`--messages=<1-7>` for days of messages to delete',
+            extendedHelp: `\`\`--duration<1-30d>\` for temp ban duration \n\`--messages=<1-7>\` for days of messages to delete \n You also may need to issue the command \`conf set roles.modrole <roleID:name:mention>\` or have the \`BAN_MEMBERS\` permission in order to execute this command.`,
             usage: '<user:user> [reason:string] [...]',
             usageDelim: " ",
             quotedStringSupport: false,
