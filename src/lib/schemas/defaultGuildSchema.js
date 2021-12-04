@@ -1,6 +1,7 @@
 const { KlasaClient } = require("klasa");
 
 KlasaClient.defaultGuildSchema
+	.add('customs', 'any', { default: [], array: true })
 	.add('roles', folder => folder
 		.add('muted', 'role', { default: null})
 		.add('modrole', 'role', { default: null})
