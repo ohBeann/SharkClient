@@ -11,7 +11,7 @@ module.exports = class extends Command {
 			enabled: true,
 			runIn: ['text'],
 			cooldown: 3,
-			permissionLevel: 4,
+			permissionLevel: 0,
 			description: "Change your custom role's name or color.",
 			extendedHelp: 'No extended help available.',
 			usage: '<rename|color|add|remove|list> [Member:member|Input:string] [Role:role|Input:string] [...]',
@@ -29,7 +29,7 @@ module.exports = class extends Command {
 		if (!name.length) throw `${cross}  ::  You must supply a new custom role name.`;
 		if (name.length > 32) throw `${cross}  ::  New name must not exceed 32 characters. Please remove __${name.length - 32}__ characters.`;
 
-		if (!customRole) return message.react('719909424889856011');
+		if (!customRole) return message.react(cross);
 
 
 		const role = message.guild.roles.cache.get(customRole.roleID);
@@ -46,7 +46,7 @@ module.exports = class extends Command {
 		const customRole = message.guild.settings.get('customs')
 			.find(entry => entry.id === message.author.id);
 
-		if (!customRole) return message.react('719909424889856011');
+		if (!customRole) return message.react(cross);
 
 		if (!HEXCODE_REGEX.test(color)) throw `${cross}  ::  Please provide a proper hex color code. (e.g. \`#ef596f\`)`;
 
@@ -61,7 +61,7 @@ module.exports = class extends Command {
 	}
 
 	async add(message, [member, role]) {
-		if (!await message.hasAtLeastPermissionLevel(6)) return message.react('719909424889856011');
+		if (!await message.hasAtLeastPermissionLevel(6)) return message.react("889342294220742656");
 
 		if (!member) throw `${cross}  ::  Member is a required argument.`;
 		if (!role) throw `${cross}  ::  Role is a required argument.`;
@@ -74,7 +74,7 @@ module.exports = class extends Command {
 	}
 
 	async remove(message, [arg]) {
-		if (!await message.hasAtLeastPermissionLevel(6)) return message.react('719909424889856011');
+		if (!await message.hasAtLeastPermissionLevel(6)) return message.react(cross);
 
 		arg = arg.id || undefined;
 
@@ -96,7 +96,7 @@ module.exports = class extends Command {
 	}
 
 	async list(message) {
-		if (!await message.hasAtLeastPermissionLevel(6)) return message.react('719909424889856011');
+		if (!await message.hasAtLeastPermissionLevel(6)) return message.react(cross);
 
 		const customs = message.guild.settings.get('customs');
 		const chunked = chunk(customs, 10);
