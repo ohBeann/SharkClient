@@ -22,7 +22,6 @@ module.exports = class extends Monitor {
 
     async run(message) {
         if (!new RegExp(beanIsCool.join('|')).test(message.content.toLowerCase())) return null;
-        // only works in #general of Sharkland & the testing server, removing this makes it work in all channels
             console.log('Bean sexy owner');
             message.send("so hot and sexy yes yes yes")
             return Promise.all(yesReaction.map(async emote => await message.react(emote)));
