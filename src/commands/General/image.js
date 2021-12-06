@@ -54,7 +54,13 @@ module.exports = class extends Command {
             "strip",
             "smut",
             "squirt",
-            "squirting"
+            "squirting",
+            "dick",
+            "penis",
+            "orgasm",
+            "semen",
+            "sperm",
+            "lewd"
         ]
 
         if (!message.guild.settings.get("nsfw", true)) {
@@ -82,6 +88,7 @@ module.exports = class extends Command {
             .setImage(img.url)
 
         message.channel.send(embed)
+        console.log(img.url)
     }
 
 };
