@@ -69,6 +69,10 @@ module.exports = class extends Language {
 			INHIBITOR_RUNIN: (types) => `This command is only available in ${types} channels.`,
 			INHIBITOR_RUNIN_NONE: (name) => `The ${name} command is not configured to run in any channel.`,
 
+			CMD_LOG_DISABLED: "logging is now Disabled",
+			CMD_LOG_ENABLED: "logging is now Enabled",
+			CMD_LOG_INVALID: "Invalid Option, please choose from",
+			COMMAND_LOG_DESCRPTION: "Enable/Disable Logging events if you're a mod or above.",
 			COMMAND_BLACKLIST_DESCRIPTION: 'Blacklists or un-blacklists users and guilds from the bot.',
 			COMMAND_BLACKLIST_SUCCESS: (usersAdded, usersRemoved, guildsAdded, guildsRemoved) => [
 				usersAdded.length ? `**Users Added**\n${util.codeBlock('', usersAdded.join(', '))}` : '',
