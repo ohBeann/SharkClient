@@ -31,7 +31,7 @@ module.exports = class extends Command {
             // case "leave": await this.update("leave", msg);
             //     break;
             case "messages": await this.update("messages", msg);
-            //     break;
+                  break;
             // case "roles": await this.update("roles", msg);
             //     break;
             default: msg.reply(`${msg.language.get("CMD_LOG_INVALID")} \`moderation\`, \`messages\`.`);
