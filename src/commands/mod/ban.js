@@ -57,7 +57,7 @@ module.exports = class extends Command {
         const embed = new Discord.MessageEmbed()
             .setDescription(`You have been banned in ${msg.guild.name} ${duration > 0 ? ` for: ${banDays}` : ""}${reason ? ` | ${reason}` : ""}`)
             .setColor("RED")
-        await target.send(embed)
+        await target.send(embed).catch(e => console.log(e))
         await msg.guild.members.ban(target, {
             reason: reason ? reason : `No Reason Specified - ${msg.author.tag}`,
             days: msgDays
