@@ -2,5 +2,8 @@
   "dependencies": {
     "discord.js": "^13.1.0",
     "reddit-image-fetcher": "^2.0.8"
+  },
+  "devDependencies": {
+    "eslint": "^8.4.1"
   }
 }
