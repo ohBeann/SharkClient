@@ -39,7 +39,6 @@ module.exports = class extends Command {
                 `❯ **Kick**: ${actions.kick}`
             ].join("\n"))
             .setTimestamp()
-            .setFooter("PenguBot.com")
             .setAuthor(`User History`, this.client.user.displayAvatarURL())
             .setColor("#52c6ff"));
     }
