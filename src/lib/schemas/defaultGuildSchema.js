@@ -23,6 +23,9 @@ KlasaClient.defaultGuildSchema
 	// NSFW
 	.add('nsfw', 'Boolean', { default: false})
 
+	// Modlogs
+	.add("modlogs", "any", { array: true, configurable: false })
+
 	// Server Logs
 	.add('serverlogs', folder => folder
 		.add("messages", "boolean", { default: false })

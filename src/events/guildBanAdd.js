@@ -9,12 +9,13 @@ module.exports = class extends Event {
         });
     }
     async run(guild, user) {
+        if(guild.settings.get("toggles.serverlogs")){
         await new ServerLog(guild)
             .setColor("red")
             .setType("moderation")
             .setName("Member Banned")
             .setMessage(`🔨  ::  ${user} (${user.id}) has been **banned**.`)
             .send();
-    }
+    }}
 
 };

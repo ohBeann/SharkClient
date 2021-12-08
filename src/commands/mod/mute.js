@@ -3,6 +3,7 @@ const {
 	Duration
 } = require('klasa');
 const Discord = require('discord.js')
+const ModLog = require("../../lib/structures/ModLog");
 
 module.exports = class extends Command {
 
@@ -17,7 +18,7 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [when, member, reason]) {
+	async run(msg, [when, member, ...reason]) {
 		if (member.id === msg.author.id) throw 'Why would you mute yourself?';
 		if (member.id === this.client.user.id) throw 'Have I done something wrong?';
 
@@ -39,10 +40,18 @@ module.exports = class extends Command {
 					user: member.id
 				}
 			});
-			return msg.sendMessage(`${member.user.tag} got temporarily muted for ${Duration.toNow(when)}.${reason ? ` With reason of: ${reason}` : ''}`);
+			return msg.sendMessage(`${member.user.tag} got temporarily muted for ${Duration.toNow(when)}`);
 		}
 
-		return msg.sendMessage(`${member.user.tag} got muted.${reason ? ` With reason of: ${reason}` : ''}`);
+		if(msg.guild.settings.get("toggles.modlogs")){
+		await new ModLog(msg.guild)
+			.setType("mute")
+			.setModerator(msg.author)
+			.setReason(reason)
+			.setUser(member.user)
+			.send();
+		}
+		return msg.sendMessage(`${member.user.tag} got muted.`);
 	}
 
 };
