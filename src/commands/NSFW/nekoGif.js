@@ -9,7 +9,7 @@ module.exports = class extends Command {
 
     constructor(...args) {
         super(...args, {
-            enabled: true,
+            enabled: false,
             runIn: ['text', 'dm', 'group'],
             deletable: false,
             nsfw: true,
